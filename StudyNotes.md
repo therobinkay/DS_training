@@ -698,7 +698,7 @@ Confounding variable이란 무엇인가요?
 
 
 p-value란?
-Type 1 Error를 범할 확률, 즉 null hypothesis(H0)를 잘못 reject할 확률. 주로 significance level (ɑ)을 정하곤 하는데, p-value가 ɑ보다 높다면 H0 유지, 낮다면 H0을 reject한다.
+Null hypothesis(H0)이 참이라 가정했을 때, 표본의 통계치와 같거나 더 극단적인 통계치가 관측될 확률. 주로 significance level (ɑ)을 정하곤 하는데, p-value가 ɑ보다 높다면 H0 유지, 낮다면 H0을 reject한다.
 
 
 p-value는 요즘 시대에도 여전히 유효할까요? 언제 p-value가 실제를 호도하는 경향이 있을까요?
