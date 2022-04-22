@@ -1,21 +1,21 @@
-머신러닝
-머신러닝의 정의는 무엇인가요?
+# 머신러닝
+### 머신러닝의 정의는 무엇인가요?
 알고리즘을 통해 시스템을 발전시켜 세부적인 명령 없이도 자동적으로 습득하고, 패턴을 찾고, 결정을 내리는 기계를 만들어 내는 것.
 
 
-지도학습과 비지도학습의 차이가 무엇인지 상세한 예를 들어 설명하세요.
+### 지도학습과 비지도학습의 차이가 무엇인지 상세한 예를 들어 설명하세요.
 지도학습이란 label된 training data로부터 모델을 추측하는 것이다. Target label을 바탕으로 변수 간 상관관계를 파악하거나 예측 모델을 만든다. 종류로는 SVM, 인공지능망, 선형회귀, 로지스틱 회귀, XGBoost 등이 있다.
 예) 집 평수에 근거하여 가격 예측, 검색 엔진 결과의 관계성 예측 등
 비지도학습이란 label이 없는 data에서 숨겨진 상관관계나 패턴을 파악하는 것이다. Target label은 존재하지 않는다. 종류로는 clustering, PCA, SVD 등이 있다.
 예) 투표에 의거해 유권자들 분류, 이미지 세분화 등
 
 
-Training 세트와 Test 세트를 분리하는 이유는? Validation 세트가 따로 있는 이유는? Test 세트가 오염되었다는 말의 뜻은?
+### Training 세트와 Test 세트를 분리하는 이유는? Validation 세트가 따로 있는 이유는? Test 세트가 오염되었다는 말의 뜻은?
 Training set과 test set을 분리하지 않는다면 overfitting에 취약한 모델이 된다. 또한, validation set 없이 학습을 진행한다면 test set의 평가 지표에 따라 hyperparameter를 조절할 것이며, 그렇다면 오히려 test set의 특성에 overfitting될 위험이 있다. 즉, training set에서 학습을 진행하고, validation set을 평가해 hyperparameter를 조정하고, 완성된 모델을 test set에 적용한다.
 Test set이 오염되었다는 뜻은 training set와 train set이 완벽히 분리되지 않아서 서로 영향을 주고 받거나, test set까지 포함해 정규화를 해 버려서 training set에 영향을 주는 등의 일을 말한다.
 
 
-Cross Validation은 무엇이고 어떻게 해야하나요?
+### Cross Validation은 무엇이고 어떻게 해야하나요?
 통계적 분석이 독립적인 데이터셋을 분석할 때 얼마나 일반화되는지 조사하는 model validation 방식. 보통 예측 모델의 성능을 조사할 때, overfitting을 방지하고 독립적인 데이터셋에 얼마나 잘 반응하는지 보기 위해 training phase에서 행해진다.
 train set을 다시 한 번 train set + validation set으로 나누어 학습 중 검증과 수정을 하는 것을 의미. 적은 데이터로도 정확도를 향상시킬 수 있지만, iteration 횟수가 많아 훈련과 평가에 시간이 오래 걸리는 편.
 종류로는 크게 k-fold, stratified k-fold, leave-one-out (LOOCV) 등이 있다.
@@ -25,7 +25,7 @@ LOOCV: 하나의 데이터를 제외하고 나머지를 모두 학습에 사용.
 (보통은 5-fold, 10-fold를 사용. Bias-variance trade-off에서 좋은 성적을 보이기에.)
 
 
-Bias, variance, bias-variance tradeoff에 대해 각각 설명하고, overfitting과 underfitting이 이에 어떤 영향을 끼치는지 관련지어 설명하세요.
+### Bias, variance, bias-variance tradeoff에 대해 각각 설명하고, overfitting과 underfitting이 이에 어떤 영향을 끼치는지 관련지어 설명하세요.
 Bias(편향): 리턴 값들이 최적 값에서 얼마나 떨어진 곳에 집중되어 있는가?
 Variance(분산): 리턴 값들이 얼마나 넓게 퍼져 있는가?
 Bias가 높을수록 underfitting, variance가 높을수록 overfitting.
