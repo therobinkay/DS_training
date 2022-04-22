@@ -4,44 +4,42 @@
 
 
 ### 지도학습과 비지도학습의 차이가 무엇인지 상세한 예를 들어 설명하세요.
-지도학습이란 label된 training data로부터 모델을 추측하는 것이다. Target label을 바탕으로 변수 간 상관관계를 파악하거나 예측 모델을 만든다. 종류로는 SVM, 인공지능망, 선형회귀, 로지스틱 회귀, XGBoost 등이 있다.
-예) 집 평수에 근거하여 가격 예측, 검색 엔진 결과의 관계성 예측 등
+- 지도학습이란 label된 training data로부터 모델을 추측하는 것이다. Target label을 바탕으로 변수 간 상관관계를 파악하거나 예측 모델을 만든다. 종류로는 SVM, 인공지능망, 선형회귀, 로지스틱 회귀, XGBoost 등이 있다.
+- 예) 집 평수에 근거하여 가격 예측, 검색 엔진 결과의 관계성 예측 등
 비지도학습이란 label이 없는 data에서 숨겨진 상관관계나 패턴을 파악하는 것이다. Target label은 존재하지 않는다. 종류로는 clustering, PCA, SVD 등이 있다.
-예) 투표에 의거해 유권자들 분류, 이미지 세분화 등
+- 예) 투표에 의거해 유권자들 분류, 이미지 세분화 등
 
 
 ### Training 세트와 Test 세트를 분리하는 이유는? Validation 세트가 따로 있는 이유는? Test 세트가 오염되었다는 말의 뜻은?
-Training set과 test set을 분리하지 않는다면 overfitting에 취약한 모델이 된다. 또한, validation set 없이 학습을 진행한다면 test set의 평가 지표에 따라 hyperparameter를 조절할 것이며, 그렇다면 오히려 test set의 특성에 overfitting될 위험이 있다. 즉, training set에서 학습을 진행하고, validation set을 평가해 hyperparameter를 조정하고, 완성된 모델을 test set에 적용한다.
-Test set이 오염되었다는 뜻은 training set와 train set이 완벽히 분리되지 않아서 서로 영향을 주고 받거나, test set까지 포함해 정규화를 해 버려서 training set에 영향을 주는 등의 일을 말한다.
+- Training set과 test set을 분리하지 않는다면 overfitting에 취약한 모델이 된다. 또한, validation set 없이 학습을 진행한다면 test set의 평가 지표에 따라 hyperparameter를 조절할 것이며, 그렇다면 오히려 test set의 특성에 overfitting될 위험이 있다. 즉, training set에서 학습을 진행하고, validation set을 평가해 hyperparameter를 조정하고, 완성된 모델을 test set에 적용한다.
+- Test set이 오염되었다는 뜻은 training set와 train set이 완벽히 분리되지 않아서 서로 영향을 주고 받거나, test set까지 포함해 정규화를 해 버려서 training set에 영향을 주는 등의 일을 말한다.
 
 
 ### Cross Validation은 무엇이고 어떻게 해야하나요?
-통계적 분석이 독립적인 데이터셋을 분석할 때 얼마나 일반화되는지 조사하는 model validation 방식. 보통 예측 모델의 성능을 조사할 때, overfitting을 방지하고 독립적인 데이터셋에 얼마나 잘 반응하는지 보기 위해 training phase에서 행해진다.
-train set을 다시 한 번 train set + validation set으로 나누어 학습 중 검증과 수정을 하는 것을 의미. 적은 데이터로도 정확도를 향상시킬 수 있지만, iteration 횟수가 많아 훈련과 평가에 시간이 오래 걸리는 편.
-종류로는 크게 k-fold, stratified k-fold, leave-one-out (LOOCV) 등이 있다.
-K-fold: 가장 일반적. 데이터를 k개로 나누고 하나를 validation set으로 지정해, k번 iterate하며 train으로 학습하고 validation으로 테스트한 후 평균을 구한다.
-Stratified k-fold: 주로 분류 문제에 사용. Label의 분포가 불균형할 때 분포를 고려해 validate.
-LOOCV: 하나의 데이터를 제외하고 나머지를 모두 학습에 사용. K-fold보다 bias는 낮으나 variance가 높을 수 있음. 학습된 train set이 전체 데이터셋과 유사하고 평균의 분산값은 결과값의 correlation이 높을 수록 증가하기 때문.
-(보통은 5-fold, 10-fold를 사용. Bias-variance trade-off에서 좋은 성적을 보이기에.)
+- 통계적 분석이 독립적인 데이터셋을 분석할 때 얼마나 일반화되는지 조사하는 model validation 방식. 보통 예측 모델의 성능을 조사할 때, overfitting을 방지하고 독립적인 데이터셋에 얼마나 잘 반응하는지 보기 위해 training phase에서 행해진다.
+- train set을 다시 한 번 train set + validation set으로 나누어 학습 중 검증과 수정을 하는 것을 의미. 적은 데이터로도 정확도를 향상시킬 수 있지만, iteration 횟수가 많아 훈련과 평가에 시간이 오래 걸리는 편.
+- 종류로는 크게 k-fold, stratified k-fold, leave-one-out (LOOCV) 등이 있다. (보통은 5-fold, 10-fold를 사용. Bias-variance trade-off에서 좋은 성적을 보이기에.)
+1. K-fold: 가장 일반적. 데이터를 k개로 나누고 하나를 validation set으로 지정해, k번 iterate하며 train으로 학습하고 validation으로 테스트한 후 평균을 구한다.
+2. Stratified k-fold: 주로 분류 문제에 사용. Label의 분포가 불균형할 때 분포를 고려해 validate.
+3. LOOCV: 하나의 데이터를 제외하고 나머지를 모두 학습에 사용. K-fold보다 bias는 낮으나 variance가 높을 수 있음. 학습된 train set이 전체 데이터셋과 유사하고 평균의 분산값은 결과값의 correlation이 높을 수록 증가하기 때문.
 
 
 ### Bias, variance, bias-variance tradeoff에 대해 각각 설명하고, overfitting과 underfitting이 이에 어떤 영향을 끼치는지 관련지어 설명하세요.
-Bias(편향): 리턴 값들이 최적 값에서 얼마나 떨어진 곳에 집중되어 있는가?
-Variance(분산): 리턴 값들이 얼마나 넓게 퍼져 있는가?
-Bias가 높을수록 underfitting, variance가 높을수록 overfitting.
-Bias와 variance는 trade-off 관계에 있으며, 이 둘 모두가 적절히 낮을 때 좋은 모델이라 할 수 있다.
+- Bias(편향): 리턴 값들이 최적 값에서 얼마나 떨어진 곳에 집중되어 있는가?
+- Variance(분산): 리턴 값들이 얼마나 넓게 퍼져 있는가?
+- Bias가 높을수록 underfitting, variance가 높을수록 overfitting.
+- Bias와 variance는 trade-off 관계에 있으며, 이 둘 모두가 적절히 낮을 때 좋은 모델이라 할 수 있다.
 
 
-좋은 모델의 정의는 무엇일까요?
-현재 데이터를 잘 설명하며, 미래 데이터에 대한 예측 성능이 좋은 모델. 현재 데이터를 잘 설명하려면 training set의 error를 최소화해야 하며, 예측 성능이 좋으려면 bias와 variance를 낮춰야 한다.
-물론 좋은 모델도 중요하지만, 좋은 데이터가 더 중요하다 (전처리가 중요한 이유).
-어느 상황에서나 항상 좋은 성능을 내는 모델은 없다.
+### 좋은 모델의 정의는 무엇일까요?
+- 현재 데이터를 잘 설명하며, 미래 데이터에 대한 예측 성능이 좋은 모델. 현재 데이터를 잘 설명하려면 training set의 error를 최소화해야 하며, 예측 성능이 좋으려면 bias와 variance를 낮춰야 한다.
+- 물론 좋은 모델도 중요하지만, 좋은 데이터가 더 중요하다 (전처리가 중요한 이유). 어느 상황에서나 항상 좋은 성능을 내는 모델은 없다.
 
 
-머신러닝에서 overfitting일 경우 어떻게 대처해야 할까요?
-모델을 단순화. 고려된 관련 피처의 개수를 줄임으로써 데이터의 노이즈를 줄인다.
-Cross-validation.
-L1, L2 등 정규화.
+### 머신러닝에서 overfitting일 경우 어떻게 대처해야 할까요?
+- 모델을 단순화. 고려된 관련 피처의 개수를 줄임으로써 데이터의 노이즈를 줄인다.
+- Cross-validation.
+- L1, L2 등 정규화.
 
 
 샘플링(Sampling)과 리샘플링(Resampling)에 대해 설명해주세요. 리샘플링은 무슨 장점이 있을까요?
