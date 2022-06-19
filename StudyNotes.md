@@ -598,32 +598,33 @@ Decision Tree. 중요한 피처들(성별, 최근 구매 상품, 평균 구매 �
 PCA.
 
 
-딥러닝 일반
-딥러닝은 무엇인가요? 딥러닝과 머신러닝의 차이는?
-딥러닝은 머신러닝의 일부로, 인공신경망을 사용하여 머신러닝 학습을 수행한다.
-머신러닝은 데이터의 여러 특징 중 무엇을 추출할지 사람이 직접 분석하고 판단하나 (feature engineering), 딥러닝에서는 기계가 자동으로 특징을 추출한다. 따라서 보다 큰 데이터셋과 긴 학습시간을 필요로 한다.
-주로 정형 데이터는 머신러닝, 비정형 데이터는 딥러닝을 사용한다.
+# 딥러닝 일반
+
+### 딥러닝은 무엇인가요? 딥러닝과 머신러닝의 차이는?
+- 딥러닝은 머신러닝의 일부로, 인공신경망을 사용하여 머신러닝 학습을 수행한다.
+- 머신러닝은 데이터의 여러 특징 중 무엇을 추출할지 사람이 직접 분석하고 판단하나 (feature engineering), 딥러닝에서는 기계가 자동으로 특징을 추출한다. 따라서 보다 큰 데이터셋과 긴 학습시간을 필요로 한다.
+- 주로 정형 데이터는 머신러닝, 비정형 데이터는 딥러닝을 사용한다.
 
 
-Cost Function과 Activation Function은 무엇인가요?
-Cost function(비용 함수): 예측 값과 실제 값의 차이에 대한 함수 (즉, 최소화해야 한다)
-Activation function (활성화 함수): 보다 복잡한 데이터를 예측할 수 있도록 선형 모델을 비선형 모델로 변환해주는 함수. 선형 모델의 함수와 활성화 함수가 결합되어 비선형 모델이 된다. 여기서 가중치(weight)와 편향(bias)이 중요하게 작용하는데, 가중치는 활성화 함수의 기울기를 조절하며, 편향은 함수를 수평이동하여 데이터에 더 잘 맞도록 한다. 연산값이 너무 많아지거나 불필요한 피처가 많을 때 해결하기 위한 함수이기도 하다.
+### Cost Function과 Activation Function은 무엇인가요?
+- Cost function(비용 함수): 예측 값과 실제 값의 차이에 대한 함수 (즉, 최소화해야 한다)
+- Activation function (활성화 함수): 보다 복잡한 데이터를 예측할 수 있도록 선형 모델을 비선형 모델로 변환해주는 함수. 선형 모델의 함수와 활성화 함수가 결합되어 비선형 모델이 된다. 여기서 가중치(weight)와 편향(bias)이 중요하게 작용하는데, 가중치는 활성화 함수의 기울기를 조절하며, 편향은 함수를 수평이동하여 데이터에 더 잘 맞도록 한다. 연산값이 너무 많아지거나 불필요한 피처가 많을 때 해결하기 위한 함수이기도 하다.
 
 
-알고있는 Activation Function에 대해 알려주세요. (Sigmoid, ReLU, LeakyReLU, Tanh 등)
-Sigmoid: 입력을 0과 1 사이의 값으로 변환. 입력 값의 절대값이 높을수록 기울기를 소실하는 gradient vanishing 문제가 있음.
-Tanh: 입력을 -1과 1 사이의 값으로 변환. 마찬가지로 gradient vanishing 문제.
-ReLU: max(0, x). Gradient vanishing 문제가 없고 효율과 성능이 뛰어나나, 음수일 경우 Dead ReLU.
-Leaky ReLU: max(0.01x, x). 좋은 성능을 유지하며 Dead ReLU 문제 해결.
-Softmax: 모든 입력값에 대해 0과 1 사이의 수로 변환해 확률로 해석. (극소나 음수의 입력값은 0에 가깝도록 변환) 다중 클래스 변환에서 많이 사용.
+### 알고있는 Activation Function에 대해 알려주세요. (Sigmoid, ReLU, LeakyReLU, Tanh 등)
+- Sigmoid: 입력을 0과 1 사이의 값으로 변환. 입력 값의 절대값이 높을수록 기울기를 소실하는 gradient vanishing 문제가 있음.
+- Tanh: 입력을 -1과 1 사이의 값으로 변환. 마찬가지로 gradient vanishing 문제.
+- ReLU: max(0, x). Gradient vanishing 문제가 없고 효율과 성능이 뛰어나나, 음수일 경우 Dead ReLU.
+- Leaky ReLU: max(0.01x, x). 좋은 성능을 유지하며 Dead ReLU 문제 해결.
+- Softmax: 모든 입력값에 대해 0과 1 사이의 수로 변환해 확률로 해석. (극소나 음수의 입력값은 0에 가깝도록 변환) 다중 클래스 변환에서 많이 사용.
 
 
-딥러닝에서 overfitting일 경우 어떻게 대처해야 할까요?
-Early stopping: validation loss가 높아지는 시점에서 training epoch 추가를 중단.
-정규화: L2나 L1 정규화로 비용함수의 weight의 크기에 페널티 부과.
-Data augmentation: (특히 이미지 데이터일 때) 데이터의 수가 적을 경우, 인위적으로 mirroring 등의 변화를 주어 훈련 데이터의 수를 증가.
-Noise robustness: 노이즈나 이상치의 면역을 늘릴 수 있도록 데이터나 weight에 의도적인 노이즈 부여.
-Batch-normalization: 활성화 함수의 활성화값 (출력값)을 정규화. 각 은닉층에서 정규화를 하며 input 분포가 일정해지고, learning rate의 영향을 덜 받게 된다. 결과적으로 학습속도가 빨라진다.
+### 딥러닝에서 overfitting일 경우 어떻게 대처해야 할까요?
+- Early stopping: validation loss가 높아지는 시점에서 training epoch 추가를 중단.
+- 정규화: L2나 L1 정규화로 비용함수의 weight의 크기에 페널티 부과.
+- Data augmentation: (특히 이미지 데이터일 때) 데이터의 수가 적을 경우, 인위적으로 mirroring 등의 변화를 주어 훈련 데이터의 수를 증가.
+- Noise robustness: 노이즈나 이상치의 면역을 늘릴 수 있도록 데이터나 weight에 의도적인 노이즈 부여.
+- Batch-normalization: 활성화 함수의 활성화값 (출력값)을 정규화. 각 은닉층에서 정규화를 하며 input 분포가 일정해지고, learning rate의 영향을 덜 받게 된다. 결과적으로 학습속도가 빨라진다.
 
 
 Batch Normalization의 효과는?
