@@ -627,54 +627,54 @@ PCA.
 - Batch-normalization: 활성화 함수의 활성화값 (출력값)을 정규화. 각 은닉층에서 정규화를 하며 input 분포가 일정해지고, learning rate의 영향을 덜 받게 된다. 결과적으로 학습속도가 빨라진다.
 
 
-Batch Normalization의 효과는?
-Mini-batch 단위로 입력 데이터의 평균을 0, 분산을 1로 표준화시키는 것. 네트워크를 거친 값들의 분포를 가우시안으로 변환. 기울기 소실 문제에서 자유로워 learning rate를 크게 설정할 수 있고, 따라서 학습 속도도 빨라진다. 또한 초기 가중치 값에 크게 의지하지 않아도 된다 (어차피 표준화되기 때문)
+### Batch Normalization의 효과는?
+- Mini-batch 단위로 입력 데이터의 평균을 0, 분산을 1로 표준화시키는 것. 네트워크를 거친 값들의 분포를 가우시안으로 변환. 기울기 소실 문제에서 자유로워 learning rate를 크게 설정할 수 있고, 따라서 학습 속도도 빨라진다. 또한 초기 가중치 값에 크게 의지하지 않아도 된다 (어차피 표준화되기 때문)
 
 
-Hyperparameter는 무엇인가요?
-사용자가 직접 세팅해주는 값. 튜닝 기법으로는 Grid Search, Manual Search, Random Search 등.
+### Hyperparameter는 무엇인가요?
+- 사용자가 직접 세팅해주는 값. 튜닝 기법으로는 Grid Search, Manual Search, Random Search 등.
 
 
-요즘 Sigmoid 보다 ReLU를 많이 쓰는데 그 이유는?
-Vanishing gradient 문제를 해결하기 위해서. 다만 ReLU도 Dead ReLU 문제가 있기 때문에 Leaky ReLU로 이를 보완할 수 있다.
+### 요즘 Sigmoid 보다 ReLU를 많이 쓰는데 그 이유는?
+- Vanishing gradient 문제를 해결하기 위해서. 다만 ReLU도 Dead ReLU 문제가 있기 때문에 Leaky ReLU로 이를 보완할 수 있다.
 
 
-Gradient Descent에 대해서 쉽게 설명한다면?
-특정 함수의 최소값(혹은 최적값)을 찾기 위해 미분하여 기울기를 구하고 경사 하강 방향으로 이동해 parameter 값을 도출.
-단점: learning rate에 따라 결과값이 다르거나 결과 도출이 불가능할 수 있다. Local minima 문제에서 자유롭지 못하다.
+### Gradient Descent에 대해서 쉽게 설명한다면?
+- 특정 함수의 최소값(혹은 최적값)을 찾기 위해 미분하여 기울기를 구하고 경사 하강 방향으로 이동해 parameter 값을 도출.
+- 단점: learning rate에 따라 결과값이 다르거나 결과 도출이 불가능할 수 있다. Local minima 문제에서 자유롭지 못하다.
 
 
-hyperparameter 튜닝 기법의 차이점은?
-Grid search: hyperparameter의 모든 조합들이 시도되고 검증됨. 정확하나, 당연히 hyperparameter 개수가 많을수록 튜닝에 차질. 10-fold CV까지 행할 경우 iteration 더욱 증가.
-Random search: 주어진 iteration 수에 따라 random하게 조합을 설정해 검증. Grid search보다는 정확성이 떨어지지만 꽤 정확한 결과를 도출하며 훨씬 더 빠른 시간 내에 연산 가능.
-Bayesian optimization: 이전 hyperparameter 조합에 근거해 다음 조합 설정. 각 조합 연산 설정에는 시간이 조금 더 들지만, iteration 수가 급감하며 더욱 빠르게 연산 가능.
+### hyperparameter 튜닝 기법의 차이점은?
+- Grid search: hyperparameter의 모든 조합들이 시도되고 검증됨. 정확하나, 당연히 hyperparameter 개수가 많을수록 튜닝에 차질. 10-fold CV까지 행할 경우 iteration 더욱 증가.
+- Random search: 주어진 iteration 수에 따라 random하게 조합을 설정해 검증. Grid search보다는 정확성이 떨어지지만 꽤 정확한 결과를 도출하며 훨씬 더 빠른 시간 내에 연산 가능.
+- Bayesian optimization: 이전 hyperparameter 조합에 근거해 다음 조합 설정. 각 조합 연산 설정에는 시간이 조금 더 들지만, iteration 수가 급감하며 더욱 빠르게 연산 가능.
 
 
-Mini-batch를 작게 할 때의 장단점은?
-장점: 적은 계산 비용, 빠른 속도, 기울기가 비교적 random해 local minima 문제에서 보다 자유로움
-단점: 큰 mini-batch 사이즈보다 부정확한 기울기
+### Mini-batch를 작게 할 때의 장단점은?
+- 장점: 적은 계산 비용, 빠른 속도, 기울기가 비교적 random해 local minima 문제에서 보다 자유로움
+- 단점: 큰 mini-batch 사이즈보다 부정확한 기울기
 
 
 마지막으로 읽은 논문은 무엇인가요? 설명해주세요.
 
-통계
-CLT(중심극한정리)는 무엇이며, 왜 유용한 걸까요?
-데이터의 양이 많을수록 데이터의 분포는 정규분포와 가까워진다. 따라서 수학적 확률 판단이 용이.
+# 통계
+### CLT(중심극한정리)는 무엇이며, 왜 유용한 걸까요?
+- 데이터의 양이 많을수록 데이터의 분포는 정규분포와 가까워진다. 따라서 수학적 확률 판단이 용이.
 
 
-하지만 또 요즘같은 빅데이터 시대에는 정규성 테스트가 의미 없다는 주장이 있습니다. 맞을까요?
-데이터의 양이 많아지기에 CTL에 따라 데이터가 정규분포화 되기에, 정규성 테스트가 의미 없다고 주장하는 사람들도 있다. 다만 context를 충분히 확인해야 할 문제.
+### 하지만 또 요즘같은 빅데이터 시대에는 정규성 테스트가 의미 없다는 주장이 있습니다. 맞을까요?
+- 데이터의 양이 많아지기에 CTL에 따라 데이터가 정규분포화 되기에, 정규성 테스트가 의미 없다고 주장하는 사람들도 있다. 다만 context를 충분히 확인해야 할 문제.
 
 
-Type 1 error와 Type 2 error는 어떻게 다른가요? 검정력(Statistical power)과 무슨 관계가 있나요?
-Type 1 error (): H0가 사실이지만 거짓으로 판정해 reject할 확률.
-Type 2 error (): H0가 거짓이지만 사실로 판정해 reject에 실패할 확률.
-검정력: H0가 거짓일 때 거짓으로 판정할 확률. 1 - 로 계산한다.
+### Type 1 error와 Type 2 error는 어떻게 다른가요? 검정력(Statistical power)과 무슨 관계가 있나요?
+- Type 1 error (): H0가 사실이지만 거짓으로 판정해 reject할 확률.
+- Type 2 error (): H0가 거짓이지만 사실로 판정해 reject에 실패할 확률.
+- 검정력: H0가 거짓일 때 거짓으로 판정할 확률. 1 - 로 계산한다.
 
 
-고유값(eigenvalue)와 고유벡터(eigenvector)에 대해 설명해주세요. 왜 중요할까요?
-정방행렬 A와 벡터 v의 곱이 값 와 v의 곱이 되었을 때 (선형 변환), 와 v가 각각 고유값과 고유벡터다.
-SVD, PCA 등 행렬 분해 및 차원 축소 기법에 유용하다.
+### 고유값(eigenvalue)와 고유벡터(eigenvector)에 대해 설명해주세요. 왜 중요할까요?
+- 정방행렬 A와 벡터 v의 곱이 값 와 v의 곱이 되었을 때 (선형 변환), 와 v가 각각 고유값과 고유벡터다.
+- SVD, PCA 등 행렬 분해 및 차원 축소 기법에 유용하다.
 
 
 결측치가 있을 경우 채워야 할까요? 그 이유는 무엇인가요? 결측치에 평균값(mean)을 채워 넣는 건 어떨까요?
