@@ -703,41 +703,41 @@ PCA.
 - 데이터가 많아질수록 sample mean과 sample variance는 population mean과 population variance에 가까워진다.
 
 
-Confounding variable이란 무엇인가요?
-독립변수가 아니면서 종속변수에 큰 영향을 미치는 변수.
+### Confounding variable이란 무엇인가요?
+- 독립변수가 아니면서 종속변수에 큰 영향을 미치는 변수.
 
 
-p-value란?
-Null hypothesis(H0)이 참이라 가정했을 때, 표본의 통계치와 같거나 더 극단적인 통계치가 관측될 확률. 주로 significance level (ɑ)을 정하곤 하는데, p-value가 ɑ보다 높다면 H0 유지, 낮다면 H0을 reject한다.
+### p-value란?
+- Null hypothesis(H0)이 참이라 가정했을 때, 표본의 통계치와 같거나 더 극단적인 통계치가 관측될 확률. 주로 significance level (ɑ)을 정하곤 하는데, p-value가 ɑ보다 높다면 H0 유지, 낮다면 H0을 reject한다.
 
 
-p-value는 요즘 시대에도 여전히 유효할까요? 언제 p-value가 실제를 호도하는 경향이 있을까요?
-p-value는 데이터의 양이 많아지면 낮아질 수 있다. 표본이 커지면 표본 오차가 작아지기 때문이다. 따라서 빅데이터 시대에는 p-value의 기준값이 5%보다 더 낮아야 할 수도 있다.
+### p-value는 요즘 시대에도 여전히 유효할까요? 언제 p-value가 실제를 호도하는 경향이 있을까요?
+- p-value는 데이터의 양이 많아지면 낮아질 수 있다. 표본이 커지면 표본 오차가 작아지기 때문이다. 따라서 빅데이터 시대에는 p-value의 기준값이 5%보다 더 낮아야 할 수도 있다.
 
 
-Bias와 variance는 어떻게 조율할 수 있을까요?
-Bias: 데이터의 representativeness 확인, 앙상블 모델 (부스팅)
-Variance: 학습 데이터 추가, 정규화 (Regularization), 앙상블 모델 (배깅)
+### Bias와 variance는 어떻게 조율할 수 있을까요?
+- Bias: 데이터의 representativeness 확인, 앙상블 모델 (부스팅)
+- Variance: 학습 데이터 추가, 정규화 (Regularization), 앙상블 모델 (배깅)
 
 
-어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?
-비모수적 (nonparametric): 표본 수가 30개 이하이거나, 정규 분포를 따르지 않을 때
-모수적 (parametric): 데이터가 정규 분포를 따를 때 (또는 30개 이상의 데이터가 있을 때)
+### 어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?
+- 비모수적 (nonparametric): 표본 수가 30개 이하이거나, 정규 분포를 따르지 않을 때
+- 모수적 (parametric): 데이터가 정규 분포를 따를 때 (또는 30개 이상의 데이터가 있을 때)
 
 
-“likelihood”와 “probability”의 차이는 무엇일까요?
-확률(probability): 논리적 접근. 어떤 시행에서 특정 결과가 나올 가능성으로, 총합은 1.
-가능도(likelihood): 실재적 접근. 어떤 시행을 충분히 실행한 이후 그 결과를 토대로 경우의 수의 가능성 도출. 합의 제한은 없음.
+### “likelihood”와 “probability”의 차이는 무엇일까요?
+- 확률(probability): 논리적 접근. 어떤 시행에서 특정 결과가 나올 가능성으로, 총합은 1.
+- 가능도(likelihood): 실재적 접근. 어떤 시행을 충분히 실행한 이후 그 결과를 토대로 경우의 수의 가능성 도출. 합의 제한은 없음.
 
 
-Prior probability, likelihood, marginal likelihood를 나이브 베이즈와 관련지어 설명하세요.
-베이즈 정리는 조건부 확률을 표현한다. P(A|B)=P(A)P(B|A)P(B) 
-이를 용어로 변환하여 표현하면 다음과 같다. Posterior=PriorLikelihoodEvidence
+### Prior probability, likelihood, marginal likelihood를 나이브 베이즈와 관련지어 설명하세요.
+- 베이즈 정리는 조건부 확률을 표현한다. P(A|B)=(P(A)P(B|A))/P(B) 
+- 이를 용어로 변환하여 표현하면 다음과 같다. Posterior=Prior\*Likelihood/Evidence
 
 
-베이지안과 프리퀀티스트간의 입장차이를 설명해주실 수 있나요?
-베이지안: 과거의 사건이 현재 사건에 영향을 끼친다.
-프리퀀티스트: 현재의 객관적 사건에 의해서만 사건이 발생한다.
+### 베이지안과 프리퀀티스트간의 입장차이를 설명해주실 수 있나요?
+- 베이지안: 과거의 사건이 현재 사건에 영향을 끼친다.
+- 프리퀀티스트: 현재의 객관적 사건에 의해서만 사건이 발생한다.
 
 
 베르누이 분포 / 이항 분포 / 카테고리 분포 / 다항 분포 / 가우시안 정규 분포 / t 분포 / 카이제곱 분포 / F 분포 / 베타 분포 / 감마 분포 / 디리클레 분포에 대해 설명해주세요. 혹시 연관된 분포가 있다면 연관 관계를 설명해주세요.
