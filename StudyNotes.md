@@ -743,6 +743,10 @@ CTR를 손해 보지 않는 선에서 매출 타협을 하지 않는 것이 좋�
 - 단위 수가 너무 클 경우, 회귀를 바로 진행하면 결과를 왜곡할 수 있기 때문에 로그 적용.
 - 또한 비선형 관계의 데이터를 선형화할 때 사용.
 
+### 샘플링의 방식으로는 무엇이 있을까요?
+- 확률 샘플링 (Probability Sampling): Simple random sampling, Systematic sampling, Stratified sampling, Cluster sampling
+- 비확률 샘플링 (Non-probability Sampling): Convenience sampling, Purposive sampling, Snowball sampling, Quota sampling
+
 
 # 자연어 처리
 ### One-hot encoding에 대해 설명해주세요.
