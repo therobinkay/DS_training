@@ -406,14 +406,14 @@ Latent 수 k를 정하고 P, Q 행렬을 임의로 채운 후, 예측 평점을 
 단점: cold-start에 약함, metadata에 경우 바로 적용할 수 없음 (rating 형태가 아니라서?)
 
 
-CB와 CF의 단점은?
-CB: 유저의 interest 내에서만 추천이 돌기 때문에 interest 확장 불가, embedding의 경우 metadata의 질에 따라서 모델이 좌우됨
-CF: Cold-start, First-rater 문제에 취약. Popularity bias. 확장성을 고려해야 함.
+### CB와 CF의 단점은?
+- CB: 유저의 interest 내에서만 추천이 돌기 때문에 interest 확장 불가, embedding의 경우 metadata의 질에 따라서 모델이 좌우됨
+- CF: Cold-start, First-rater 문제에 취약. Popularity bias. 확장성을 고려해야 함.
 
 
-UBCF와 IBCF의 장단점을 설명하세요.
-UBCF: 데이터가 풍부할 경우 정확도 높음, 사전 질문이 있을 경우 cold-start에서 그나마 자유로움. 표본이 적을 경우, 뜬금없는 추천을 하기도 함. 데이터가 변화할 때마다 업데이트해야 함.
-IBCF: 사용자별 계산이 아니기에 계산이 빠르고 수시 업데이트가 필요하지 않음. 단기간에 고효율, 안정성도 있음. UBCF보다는 정확도가 떨어지고, cold-start에 매우 취약.
+### UBCF와 IBCF의 장단점을 설명하세요.
+- UBCF: 데이터가 풍부할 경우 정확도 높음, 사전 질문이 있을 경우 cold-start에서 그나마 자유로움. 표본이 적을 경우, 뜬금없는 추천을 하기도 함. 데이터가 변화할 때마다 업데이트해야 함.
+- IBCF: 사용자별 계산이 아니기에 계산이 빠르고 수시 업데이트가 필요하지 않음. 단기간에 고효율, 안정성도 있음. UBCF보다는 정확도가 떨어지고, cold-start에 매우 취약.
 
 
 MF의 방식을 나열해 보세요.
@@ -489,19 +489,19 @@ Serendipity (우연성): 보편적인 제품들 말고, 얼마나 새로운 상�
 유저들의 흥미 감소를 방지, long-tailed 분포 문제 방지. 그러나 우연성을 과도하게 강조하면 안됨. 헤비유저들에게 좀 더 높이, 라이트 유저에게는 연관성을 더 높이기.
 
 
-Retention rate는 실제로 어떻게 평가받아야 하나요?
-높은 retention rate는 현 고객들이 계속해서 제품 구매나 사이트 방문을 한다는 지표이며, 반대로 낮은 retention rate는 churning이 지속적으로 일어나고 있다는 것을 시사한다.
-시간 기반 retention rate는 주로 N-day 방법으로 계산한다. Active user와 time period를 정의해야 retention rate를 계산할 수 있다.
-Retention rate의 감소를 방지하려면 at-risk 단계에 있는 고객들의 churning 시기 이전에 그들의 피드백을 수용하거나 구매 history를 사용해 UX를 향상하는 등 그들에게 어필해야 한다.
-장기 고객과 신규 고객의 retention rate에는 차이가 있을 듯 하다. 이러한 trend 차이가 언제 일어나는지 파악하고, 해당 기간을 신규-장기 전환 시기로 지정한 후, 신규 고객의 retention rate에 보다 집중하는 것이 좋을 듯 하다.
+### Retention rate는 실제로 어떻게 평가받아야 하나요?
+- 높은 retention rate는 현 고객들이 계속해서 제품 구매나 사이트 방문을 한다는 지표이며, 반대로 낮은 retention rate는 churning이 지속적으로 일어나고 있다는 것을 시사한다.
+- 시간 기반 retention rate는 주로 N-day 방법으로 계산한다. Active user와 time period를 정의해야 retention rate를 계산할 수 있다.
+- Retention rate의 감소를 방지하려면 at-risk 단계에 있는 고객들의 churning 시기 이전에 그들의 피드백을 수용하거나 구매 history를 사용해 UX를 향상하는 등 그들에게 어필해야 한다.
+- 장기 고객과 신규 고객의 retention rate에는 차이가 있을 듯 하다. 이러한 trend 차이가 언제 일어나는지 파악하고, 해당 기간을 신규-장기 전환 시기로 지정한 후, 신규 고객의 retention rate에 보다 집중하는 것이 좋을 듯 하다.
 
 
-Explicit Feedback과 Implicit Feedback은 무엇일까요? Implicit Feedback을 어떻게 Explicit하게 바꿀 수 있을까요?
-Explicit Feedback: 유저로부터 선호도를 직접적으로 수집하여 반영하는 방법.(좋아요, 리뷰, 구독, 차단 등) 유저의 의사가 적극적으로 반영된 데이터이므로 높은 신뢰도와 강력한 영향력을 가지지만, 수집 난이도가 높다.
-Implicit Feedback: 유저의 행동으로부터 선호도를 간접적으로 수집하여 반영하는 방법. (검색 기록, 방문 페이지, 페이지 체류 기간, 구매내역, 클릭 등) 수집 난이도가 낮아 동원할 수 있는 데이터의 양은 많지만, 데이터에 노이즈가 많고 분석 방법에 따라 해석 결과의 차이가 생길 수 있다. 부정적인 피드백이 없다. 노이즈가 많으나, 높은 값은 신뢰도를 보장한다고 해석해도 괜찮을 듯 하다.
-Implicit을 explicit하게 바꾸려면, item의 availability나 반복되는 feedback 등을 고려.
-availability: 만약 두 가지 상품 중 1택을 해야 한다면?
-반복 feedback: 1회성 방문과는 어떻게 다르게 해석할까?
+### Explicit Feedback과 Implicit Feedback은 무엇일까요? Implicit Feedback을 어떻게 Explicit하게 바꿀 수 있을까요?
+- Explicit Feedback: 유저로부터 선호도를 직접적으로 수집하여 반영하는 방법.(좋아요, 리뷰, 구독, 차단 등) 유저의 의사가 적극적으로 반영된 데이터이므로 높은 신뢰도와 강력한 영향력을 가지지만, 수집 난이도가 높다.
+- Implicit Feedback: 유저의 행동으로부터 선호도를 간접적으로 수집하여 반영하는 방법. (검색 기록, 방문 페이지, 페이지 체류 기간, 구매내역, 클릭 등) 수집 난이도가 낮아 동원할 수 있는 데이터의 양은 많지만, 데이터에 노이즈가 많고 분석 방법에 따라 해석 결과의 차이가 생길 수 있다. 부정적인 피드백이 없다. 노이즈가 많으나, 높은 값은 신뢰도를 보장한다고 해석해도 괜찮을 듯 하다.
+- Implicit을 explicit하게 바꾸려면, item의 availability나 반복되는 feedback 등을 고려.
+- availability: 만약 두 가지 상품 중 1택을 해야 한다면?
+- 반복 feedback: 1회성 방문과는 어떻게 다르게 해석할까?
 
 
 Cold Start란? 이 경우엔 어떻게 추천해줘야 할까요?
